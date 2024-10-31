@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BloggingSystemApplication {
 
+	//	The main method where program will be start
 	public static void main(String[] args) {
 		SpringApplication.run(BloggingSystemApplication.class, args);
 	}
