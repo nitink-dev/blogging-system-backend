@@ -31,10 +31,10 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    /*@PutMapping("/{id}")
+    @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
-    }*/
+    }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
