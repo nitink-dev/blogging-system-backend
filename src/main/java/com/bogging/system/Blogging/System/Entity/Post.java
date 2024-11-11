@@ -1,5 +1,6 @@
 package com.bogging.system.Blogging.System.Entity;
 
+import com.bogging.system.Blogging.System.Enums.PostStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -51,7 +52,7 @@ public class Post {
     // Getters and Setters
 }
 
-enum PostStatus {
-    DRAFT, PUBLISHED
-}
+//enum PostStatus {
+//    DRAFT, PUBLISHED
+//}
 

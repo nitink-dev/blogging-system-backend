@@ -1,5 +1,6 @@
 package com.bogging.system.Blogging.System.Entity;
 
+import com.bogging.system.Blogging.System.Enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -50,7 +51,7 @@ public class User {
     // Getters and Setters
 }
 
-enum Role {
-    USER, ADMIN
-}
+//enum Role {
+//    USER, ADMIN
+//}
 

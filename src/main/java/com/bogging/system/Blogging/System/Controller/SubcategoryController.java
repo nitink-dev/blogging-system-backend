@@ -14,7 +14,7 @@ public class SubcategoryController {
     @Autowired
     private SubcategoryService subcategoryService;
 
-    @PostMapping("/category/{categoryId}")
+    @PostMapping("/create/{categoryId}")
     public Subcategory createSubcategory(@PathVariable Long categoryId, @RequestBody Subcategory subcategory) {
         return subcategoryService.createSubcategory(categoryId, subcategory);
     }

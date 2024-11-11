@@ -14,27 +14,27 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public Category createCategory(Category category) {
+    public Category create(Category category) {
         return categoryRepository.save(category);
     }
 
-    public List<Category> getAllCategories() {
+    public List<Category> getAll() {
         return categoryRepository.findAll();
     }
 
-    public Category getCategoryById(Long id) {
+    public Category getById(Long id) {
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found "+ id));
     }
 
-    public Category updateCategory(Long id, Category categoryDetails) {
-        Category category = getCategoryById(id);
+    public Category update(Long id, Category categoryDetails) {
+        Category category = getById(id);
         category.setName(categoryDetails.getName());
         return categoryRepository.save(category);
     }
 
-    public void deleteCategory(Long id) {
-        Category category = getCategoryById(id);
+    public void delete(Long id) {
+        Category category = getById(id);
         categoryRepository.delete(category);
     }
 
