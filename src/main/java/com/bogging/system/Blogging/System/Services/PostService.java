@@ -11,12 +11,15 @@ import java.util.List;
 @Service
 public class PostService {
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
+    //private final UserRepository userRepository;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     public PostService(PostRepository postRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
-        this.userRepository = userRepository;
+        //this.userRepository = userRepository;
     }
 
     public List<Post> getAllPosts() {
@@ -28,7 +31,8 @@ public class PostService {
     }
 
     public Post createPost(Post post, Long authorId) {
-        User author = userRepository.findById(authorId).orElseThrow(() -> new RuntimeException("Author not found"));
+        //User author = userRepository.findById(authorId).orElseThrow(() -> new RuntimeException("Author not found"));
+        User author = userService.getUserById(authorId);
         post.setAuthor(author);
         return postRepository.save(post);
     }
@@ -45,5 +49,6 @@ public class PostService {
     public void deletePost(Long id) {
         postRepository.deleteById(id);
     }
+
 }
 

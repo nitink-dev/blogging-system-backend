@@ -4,7 +4,6 @@ import com.bogging.system.Blogging.System.Entity.Category;
 import com.bogging.system.Blogging.System.Services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

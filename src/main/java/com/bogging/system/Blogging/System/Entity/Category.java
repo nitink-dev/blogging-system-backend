@@ -14,13 +14,13 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@JsonProperty("name") //  It's instrumental when you want to rename the field in the JSON output, especially when the Java field name and the JSON property name aren't identical
+    //  @JsonProperty("name") //  It's instrumental when you want to rename the field in the JSON output, especially when the Java field name and the JSON property name aren't identical
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     @JsonIgnore  // Prevent recursion
     private List<Subcategory> subcategories;
 
-    // Getters and setters
+    //  Getters and setters
 }
 

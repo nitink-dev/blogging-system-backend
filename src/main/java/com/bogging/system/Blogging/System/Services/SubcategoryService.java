@@ -1,14 +1,11 @@
 package com.bogging.system.Blogging.System.Services;
 
-
 import com.bogging.system.Blogging.System.Entity.Category;
 import com.bogging.system.Blogging.System.Entity.Subcategory;
 import com.bogging.system.Blogging.System.ExceptionHandling.ResourceNotFoundException;
-import com.bogging.system.Blogging.System.Repository.CategoryRepository;
 import com.bogging.system.Blogging.System.Repository.SubcategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -18,11 +15,10 @@ public class SubcategoryService {
     private SubcategoryRepository subcategoryRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
     public Subcategory createSubcategory(Long categoryId, Subcategory subcategory) {
-        Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category not found for id: " + categoryId));
+        Category category = categoryService.getById(categoryId);
         subcategory.setCategory(category);
         return subcategoryRepository.save(subcategory);
     }
@@ -46,5 +42,6 @@ public class SubcategoryService {
         Subcategory subcategory = getSubcategoryById(id);
         subcategoryRepository.delete(subcategory);
     }
+
 }
 
